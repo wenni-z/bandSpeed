@@ -1,0 +1,543 @@
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    font-size: 39px;
+}
+
+body {
+    margin: 0;
+}
+
+button, input {
+    overflow: visible;
+}
+
+.layout {
+    position: relative;
+    background-color: #fff;
+}
+
+.layout img {
+    width: 100%;
+}
+
+.userBtn {
+    position: absolute;
+    width: 0.7rem;
+    height: 2.2rem;
+    top: 1.7rem;
+    left: 0;
+    background: url('../resources/img/user-btn.png') no-repeat;
+    background-size: contain;
+}
+
+.ruleBtn {
+    position: absolute;
+    width: 0.7rem;
+    height: 2.2rem;
+    top: 1.7rem;
+    right: 0;
+}
+
+.scroll {
+    position: absolute;
+    width: 85vw;
+    height: .95rem;
+    top:10rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid bisque;
+    border-radius: 0.2rem;
+}
+
+.swipe-container {
+    height: 21px;
+    position: relative;
+    overflow: hidden;
+}
+
+.swipe-wrapper {
+    position: relative;
+    top: 0;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.swipe-outer {
+    font-size: .37333rem;
+    color: #fff;
+    white-space: nowrap;
+    cursor: grab;
+    user-select: none;
+    line-height: .46667rem;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+}
+
+.swipe-outer div {
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+    height: 21px;
+}
+
+.swipe-outer div span{
+    color: #ffc53a;
+}
+
+.phone {
+    position: absolute;
+    width: 75vw;
+    height: .97rem;
+    top:11.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    border: 1px solid bisque;
+    border-radius: 0.8rem;
+}
+
+.inputPhone {
+    width: 90%;
+    height: 60%;
+    margin-left: 0.33333rem;
+    border: 0.01333rem solid transparent;
+    background: transparent;
+    color: #fff;
+    font-size: .37333rem;
+    font-family: Source Han S;
+    font-weight: 500;
+}
+
+.submit1, .submit2 {
+    width: 4.77333rem;
+    height: 1.21333rem;
+    position: absolute;
+    top: 13.5rem;
+    left: 2.61333rem;
+    background: url('../resources/img/submit.png') no-repeat;
+    background-size: 100% 100%;
+    -webkit-animation: pulsate-bck .8s ease-in-out infinite both;
+    animation: pulsate-bck .8s ease-in-out infinite both;
+}
+.submit1 {
+    top: 14.46rem;
+}
+
+@-webkit-keyframes pulsate-bck { 
+    0% { -webkit-transform: scale(1); } 
+    50% { -webkit-transform: scale(.9); } 
+    100% { -webkit-transform: scale(1); } 
+}
+@keyframes pulsate-bck { 
+    0% { transform: scale(1); } 
+    50% { transform: scale(.9); } 
+    100% { transform: scale(1); } 
+}
+
+.code {
+    width: 75vw;
+    height: 0.97333rem;
+    position: absolute;
+    top: 13rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    border: 1px solid bisque;
+    border-radius: 0.8rem;
+}
+.inputCode {
+    width: 57%;
+    height: 60%;
+    margin-left: 0.33333rem;
+    border: 0.01333rem solid transparent;
+    background: transparent;
+    color: #fff;
+    font-size: .37333rem;
+    font-family: Source Han S;
+    font-weight: 500;
+}
+
+.getCode {
+    width: 2.96rem;
+    height: 0.97333rem;
+    flex: 1;
+    font-size: .38rem;
+    font-family: PingFang SC;
+    font-weight: 700;
+    color: #fff;
+    line-height: .97333rem;
+    text-align: center;
+    background: rgba(255,228,196,.7);
+    border: 1px solid bisque;
+    border-radius: 0.8rem;
+}
+
+.tip1, .tip2 {
+    width: 6.8rem;
+    height: .28rem;
+    position: absolute;
+    top: 15.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: .26667rem;
+    font-family: Source Han Sans CN;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    display: flex;
+}
+
+.tip1 {
+    top: 15.85333rem;
+}
+
+
+input[type=checkbox]{
+    margin: 0;
+    padding: 0;
+    width: 0.37333rem;
+    height: 0.37333rem;
+    line-height: .37333rem;
+}
+
+.tip2 .content {
+    height: .37333rem;
+    line-height: .37333rem;
+    margin-left: .13333rem;
+}
+
+a {
+    color: #1989fa;
+}
+
+.product_info_box,.product_info_box_2{
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.product_info{
+    position: absolute;
+    color: #FFF;
+    width: 90%;
+    height: 60vh;
+    top: 10vh;
+    left: 5%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    font-size: .4rem;
+    line-height: 1rem;
+    overflow: scroll;
+    background-color: rgba(200,80,20,.8);;
+    border-radius: 0.8rem;
+}
+
+.product_info_bnt,.product_info_bnt_2{
+    position: absolute;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.7rem;
+    width: 35%;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    bottom: 20vh;
+    background-color: rgb(210,80,20);
+    border-radius: 1.5rem;
+    left: 30%;
+}
+
+.product_info_bnt2,.activity_info_bnt2{
+	position: absolute;
+	width: 40%;
+	left: 30%;
+	bottom: 6vh;
+}
+.product_info_bnt2 img,.activity_info_bnt2 img{
+	width: 100%;
+}
+
+.wrapperUser {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
+    font-size: 15px;
+}
+
+@keyframes slide-in-top {
+    0% {
+        -webkit-transform: translateY(-13.33333rem);
+        transform: translateX(-13.33333rem);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.wrapperUser .userDialog {
+    width: 8.01333rem;
+    height: 11.24rem;
+    margin: auto;
+    margin-top: 25%;
+    position: relative;
+    animation: slide-in-top .5s cubic-bezier(.25,.46,.45,.94) both;
+}
+.wrapperUser .userDialog .title{
+    width: 4rem;
+    height: 0.61333rem;
+    position: absolute;
+    top: 3.13333rem;
+    text-align: center;
+    left: 1.93333rem;
+    font-size: .45333rem;
+    font-family: Microsoft YaHei;
+    font-weight: 700;
+    color: #fff;
+    line-height: .61333rem;
+}
+.wrapperUser .userDialog .content {
+    position: absolute;
+    top: 4.66667rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8rem;
+    height: 5.46667rem;
+    overflow: hidden;
+}
+.wrapperUser .userDialog .content .item {
+    width: 100%;
+    height: 0.77333rem;
+    display: flex;
+    justify-content: space-around;
+    line-height: .77333rem;
+}
+.wrapperUser .userDialog .content .item:first-child p{
+    font-size: .37333rem;
+    font-family: Microsoft YaHei;
+    font-weight: 700;
+    color: #340893;
+}
+.wrapperUser .userDialog .content .item p{
+    margin: 0;
+    font-size: .28rem;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: #fff;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.wrapperUser .userDialog .closeBtn {
+    width: 0.8rem;
+    height: 0.8rem;
+    position: absolute;
+    top: 2.82667rem;
+    right: 0;
+    background: url('../resources/img/close.png') no-repeat;
+    background-size: contain;
+}
+
+.tan_box {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.tan_box .bg_box {
+	position: absolute;
+	background-color: rgba(249,129,59,1);
+    border-radius: 30px;
+	top: 18vh;
+	left:5%;
+	width: 90%;
+	height: 16rem;
+}
+
+.tan_box .bg_box img[alt*="dianxin"] {
+	position: absolute;
+    top: 0.3rem;
+    left: 0.3rem;
+	height: 10%;
+}
+
+.tan_box .bg_box .dg_box{
+	position: absolute;
+	top: 1.2rem;
+	left:1.4rem;
+	width: 80%;
+	height: 90%;
+	margin: 0.2rem;
+	font-size: 0.6rem;
+	text-align: center;
+    display: flex;
+	flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.tan_box .bg_box .dg_box .ty_info{
+	display: flex;
+	flex-direction: column;
+	height: 3rem;
+}
+
+.tan_box .bg_box .dg_box img{
+	height: 1.6rem;
+}
+
+.tan_box .bg_box .dg_box p{
+	font-size: 0.7rem;
+	text-align: left;
+	background-color: rgba(255,255,255,.7);
+}
+
+.tan_box .bg_box .dg_box .yzm_box {
+	height: 1.5rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.yzm_box div {
+	width: 3.2rem;
+    height: 1.2rem;
+    border: 1px solid gray;
+    background-color: wheat;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.btn_yzm1 {
+	font-size: 1rem;
+    font-family: Comic Sans MS;
+}
+
+.tan_box .bg_box .dg_box .yzm_box input {
+	display: block;
+	margin: 0.2rem;
+	width: 6rem;
+	height: 1.2rem;
+	outline: none;
+	border: none;
+	background: rgba(0, 0, 0, 0);
+	text-align: center;
+	font-size: 0.7rem;
+	color: #000;
+	border: 1px solid gray;
+}
+
+.tan_box .bg_box .dg_box .btn_new {
+	width: 6rem;
+    height: 1.7rem;
+    bottom: 1rem;
+    background: rgba(255,255,255,.7);
+    border-radius: 0.9rem;
+    font-size: 0.8rem;
+    text-align: center;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success_box {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.succ_box {
+    position: absolute;
+    top: 20vh;
+    left: 10%;
+    width: 80%;
+    min-height: 9rem;
+    background: rgb(233, 104, 44);
+    font-size: .4rem;
+    color: white;
+    border-radius: 10%;
+}
+
+.succ_box .succ_head {
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 8%;
+    width: 50%;
+    text-align: center;
+    border: 0.4em outset pink;
+    border-radius: 10%;
+    margin: 0;
+}
+
+.succ_box .succ_content {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    line-height: .6rem;
+}
+
+.ok {
+	position: absolute;
+    top: -0.1rem;
+    right: -0.1rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    border: 2px solid #ccc;
+    font-size: 0.7rem;
+    text-align: center;
+    line-height: 0.7rem;
+    color: #ccc;
+    border-radius: 50%;
+}
+
+.product_info_page {
+    position: absolute;
+    width: 80vw;
+    min-height: 10rem;
+    left: 50%;
+    transform: translateX(-50%);
+    top:28rem;
+    color: white;
+    font-size: 0.4rem;
+    line-height: 0.6rem;
+}
