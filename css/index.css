@@ -536,8 +536,8 @@ p {
     min-height: 10rem;
     left: 50%;
     transform: translateX(-50%);
-    top:28rem;
+    top:29rem;
     color: white;
-    font-size: 0.4rem;
+    font-size: 0.33rem;
     line-height: 0.6rem;
 }

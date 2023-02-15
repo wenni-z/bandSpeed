@@ -39,7 +39,6 @@
 				<input type="button" class="getCode" value=" 获取验证码">
 			</div>
 
-			<div class="submit1" style="display: none;"></div>
 			<div class="submit2"></div>
 
 			<div class="tip2">
@@ -167,25 +166,6 @@
 				<div class="product_info_bnt_2">确定</div>
 			</div>
 
-			<div class="success_box" style="display: none;">
-				<div class="succ_box">
-					<h3 class="succ_head">恭喜您受理成功</h3>
-					<p class="succ_content">
-						1. 订购立即生效，如果未退订，次月自动续费。<br>
-						2. 办理成功后，用户可获赠天翼云盘铂金会员8T储存空间，15G天翼云盘专属流量、互联网权益会员N选1。互联网权益会员领取请点击：<a href="http://t.hn.189.cn/EF7vAnLh">http://t.hn.189.cn/EF7vAnLh</a> <br>
-						3. 办理宽带提速成功后，10元优惠价格享受至月底，次月则从1号开始计费。<br>
-					</p>
-					<div class="ok">x</div>
-				</div>
-			</div>
-
-			<!-- <div class="error_box" style="display: none;">
-				<div class="err_box">
-					<img src="resources/cl/v2.6.0/submit_fail.png" alt="">
-					<div class="err_ok"></div>
-				</div>
-			</div> -->
-
 		</div>
 
 	</body>
@@ -225,13 +205,7 @@
 			})
 
 			//输入手机号请求验证码
-			$('.submit2, .getCode').click(function () {
-				// get value for 'disable' attr of .getCode
-				var disabled = $(".getCode").attr("disabled");
-				if (disabled) {
-					return false;
-				}
-
+			$('.submit2').click(function () {
 				if (!$("#color-input-red").is(":checked")) {
 					alert("请勾选并同意活动规则及相关资费");
 					return;
@@ -242,17 +216,12 @@
 					alert("请填入正确的手机号");
 					return;
 				}
-				$(".submit2").hide();
-				$(".tip2").css("top", "15.85333rem");
-				$(".code").show();
-				$(".submit1").show();
-				settime();	//start countdown for sms code
 
 				let obj1 = {
 					"ipaddress": '1.192.156.201',	//固定值
 					"ver": '1.0',	//固定值
 					"mobile": phone.toString(),
-					// "channel": '2039061001',	//测试渠道号，deploy后重置
+					// "channel": '2039062001',	//测试渠道号
 					"channel": channelId,
 					"imsi": '460030870900577',	//固定值
 					"imei": '354779069340660',	//固定值
@@ -276,13 +245,15 @@
 					async: true,
 					success: function (res) {
 						if (res.resultCode == 0) {
-							pid = res.pid
+							let changeUrl = res.orderPage;
+							$(location).attr("href", changeUrl);	//re-direct to original order page
 						} else {
 							$('.layout').find('input').each(function () {
 								this.value = ''
 							})
 							alert(res.resultDesc);
 						}
+						settime();	//start countdown for sms code
 					},
 					error: function (err) {
 						alert("网络异常")
@@ -301,6 +272,7 @@
 					return false;
 				} else {
 					$(".getCode").attr("disabled", true);
+					// _getCode.val("重新发送(" + countdown + ")");  
 					_getCode.val(countdown + "s后重新获取");
 					countdown--;
 				}
@@ -308,60 +280,6 @@
 					settime();
 				}, 1000);
 			}
-
-			//提交验证码
-			$('.submit1').click(function () {
-				if (!$("#color-input-red").is(":checked")) {
-					alert("请勾选并同意活动规则及相关资费");
-					return;
-				}
-
-				let code = $('.inputCode').val()
-				if (pid == "" || pid == undefined || pid == null) {
-					alert('请先获取验证码');
-					return;
-				}
-				if (code == "") {
-					alert('请输入验证码')
-					return;
-				}
-				let obj2 = {
-					"verifyCode": code,
-					"pid": pid,
-					"orderFrom": '0',
-					"sig": 'test'
-				}
-				$.ajax({
-					url: baseUrl + '/VerifyCode',
-					type: 'get',
-					data: obj2,
-					contentType: "application/x-www-form-urlencoded",
-					async: false,
-					success: function (res) {
-						console.log(typeof res);	//String
-						res = eval("(" + res + ")");	//transform to object
-						if (res.resultCode == 0) {
-							$('.success_box').show()
-							qw.advert.onSubmit();
-							console.log(res.resultDesc);
-						} else {
-							// $('.error_box').show()
-							let resData = res.resultDesc;
-							console.log(typeof resData);
-							console.log(resData);
-							if (resData.match("验证码")) {
-								alert(resData);
-							} else {
-								alert("很抱歉，订购失败");
-							}
-						}
-					},
-					error: function (err) {
-						alert("网络异常")
-					}
-				})
-
-			})
 
 			// click to show list of winners
 			$('.userBtn').click(function () {
